@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>This Meeting Cost Us</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <section id="meeting" class="container">
+      <header id="header" class="row"></header>
+      <section id="main" class="row"></section>
+      <footer id="footer" class="row"></footer>
+    </section>
+
+    <footer id="info" class="row">
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+		<script type="text/html" id="template-header">
+      <div class="col-xs-6 col-md-offset-3">
+        <div class="row">
+          <h1 class="title">This Meeting Cost Us</h1>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <input id="new-person" placeholder="Who is in this meeting?" autofocus>
+          </div>
+        <div>
+
+        <div class="row">
+          <div class="before">
+            <button class="col-xs-4 col-md-offset-4">Start Meeting</button>
+          </div>
+          <div class="during">
+            <button>Finally Over!</button>
+            <label id="time"></label>
+            <label id="cost"></label>
+          </div>
+          <div class="after">
+            <a>Anonymously tell your boss how much this meeting cost</a>
+            <a>Waste this much money often?  Save this meeting for later</a>
+          <div>
+        </div>
+      </div>
+		</script>
+    <script type="text/html" id="template-person">
+      <td><%- index %></td>
+      <td class="view name editable col-xs-6"><%- name %></td>
+      <td class="view wage editable col-xs-5"><%- wage %></td>
+      <td class="view">
+        <button type="button" class="destroy btn btn-link col-xs-1"><span class="glyphicon glyphicon-remove"></span></button>
+      </td>
+      <td class="edit">
+        <input id="name" value="<%- name %>">
+      </td>
+      <td class="edit">
+        <input id="wage" value="<%- wage %>">
+      </td>
+		</script>
+		<script type="text/html" id="template-meetingCompositeView">
+      <div class="col-xs-6 col-md-offset-3">
+        <table id="person-list" class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <td>#</th>
+              <td>Name</td>
+              <td>Pay</td>
+              <td></td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+		</script>
+		<script type="text/html" id="template-footer">
+      <div class="col-xs-6 col-md-offset-3">
+        <button id="clear" <% if (!personCount) { %>class="hidden"<% } %>>
+          Clear meeting participants
+        </button>
+      </div>
+		</script>
+
+		<script src="js/marionette/underscore.js"></script>
+		<script src="js/marionette/backbone.js"></script>
+		<script src="js/marionette/backbone.localStorage.js"></script>
+		<script src="js/marionette/backbone.marionette.js"></script>
+
+    <!-- application -->
+		<script src="js/Meeting.js"></script>
+		<script src="js/Meeting.Persons.js"></script>
+		<script src="js/Meeting.Layout.js"></script>
+		<script src="js/Meeting.PersonList.Views.js"></script>
+		<script src="js/Meeting.PersonList.js"></script>
+		<script>
+			$(function () {
+				// start the Meeting app (defined in js/Meeting.js)
+				Meeting.start();
+			});
+		</script>
+
+  </body>
+</html>
+

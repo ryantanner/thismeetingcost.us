@@ -1,0 +1,39 @@
+body {
+  padding-top: 50px;
+}
+
+.edit {
+  display: none;
+}
+
+.editing .edit {
+  display: table-cell;
+}
+
+.editing .view {
+  display: none;
+}
+
+.during {
+  display: none;
+}
+
+.after {
+  display: none;
+}
+
+#new-person {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+}
+
+.btn.destroy {
+  color: #999;
+}
+
+#person-list thead tr td {
+  font-weight: bold;
+}
